@@ -2,7 +2,6 @@ package Entidades;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 public class AluguelMeu {
 	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");

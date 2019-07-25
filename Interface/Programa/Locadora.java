@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 import Entidades.DadosAluguel;
-import Entidades.Imposto;
+import Entidades.ImpostoBrasileiro;
 import Entidades.ServicoAluguel;
 import Entidades.Veiculo;
 
@@ -32,7 +32,7 @@ public class Locadora {
 		double precoHora = sc.nextDouble();
 		System.out.print("Preço por dia : ");
 		double precoDia = sc.nextDouble();
-		ServicoAluguel aluguel = new ServicoAluguel(precoHora, precoDia, new Imposto());
+		ServicoAluguel aluguel = new ServicoAluguel(precoHora, precoDia, new ImpostoBrasileiro());
 		
 		aluguel.processaBoleto(dadosAluguel);	
 		
