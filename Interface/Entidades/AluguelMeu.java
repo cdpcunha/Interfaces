@@ -48,15 +48,17 @@ public class AluguelMeu {
 	}
 
 	public Double calculaDuracao() {
-		long diferenca = (this.retorno.getTime() - this.saida.getTime());
-		return ((double) TimeUnit.HOURS.convert(diferenca, TimeUnit.MILLISECONDS));
+		long t1 = this.saida.getTime();
+		long t2 = this.retorno.getTime();
+		double horas = (double)(t2-t1)/1000/60/60;
+		return Math.ceil(horas);
 	}
 
 	public double calculaBase() {
 		if (this.calculaDuracao() <= 12) {
 			return (calculaDuracao() * this.vlrHora);
 		} else
-			return ((Math.round(Math.ceil(calculaDuracao() / 24))) * this.vlrDia);
+			return (Math.ceil(calculaDuracao() / 24)) * this.vlrDia;
 	}
 
 	public double calculaImp() {
@@ -68,7 +70,7 @@ public class AluguelMeu {
 
 	@Override
 	public String toString() {
-		return "Duração de "+sdf.format(this.saida)+" até "+sdf.format(this.retorno)+" = " + calculaDuracao() 
+		return "Duração de "+sdf.format(this.saida)+" até "+sdf.format(this.retorno)+" = " + calculaDuracao() +" Horas"
 			+ "\nPagamento Base = " + calculaBase()
 			+ "\nTotal de Impostos = " +  calculaImp()
 			+ "\nTotal a Pagar : " + (calculaBase()+calculaImp());
